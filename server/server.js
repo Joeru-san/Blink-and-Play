@@ -1,7 +1,6 @@
 import express from 'express';
 import { handler } from '../blink-and-play/build/handler.js';
 
-
 const app = express();
 const PORT = 3000;
 
