@@ -1,5 +1,15 @@
 <script>
     import Cards from "./Cards.svelte";
+    import Choice from "./Choice.svelte";
+    import { createEventDispatcher } from 'svelte';
+    
+    let showChoice = false;
+
+    const dispatch = createEventDispatcher();
+
+    function handleClick() {
+        dispatch('showChoice');
+    }
 </script>
 
 <main class="relative flex flex-row top-10 justify-center">
@@ -8,6 +18,7 @@
             imgSrc="/src/assets/core-actions/azione.png" 
             imgAlt="Azione" 
             imgHeader="Azioni"
+            cardAction="{handleClick}"
         />
 
         <Cards 
