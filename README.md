@@ -1,4 +1,4 @@
-<div align="center"><a href="CANALE YOUTUBE"><img scr="#" alt="Logo" width="400" height="200"></a></div>
+<div align="center"><a href="https://www.youtube.com/@brainstem2470"><img src="blink-and-play/src/assets/BlinkAndPlayLogo.png" alt="Logo" width="200"></a></div>
 
 # Blink & Play
 
