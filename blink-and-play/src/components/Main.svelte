@@ -5,19 +5,19 @@
 <main class="relative flex flex-row top-10 justify-center">
     <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-3 gap-24 lg:gap-52">
         <Cards 
-            imgSrc="/blink-and-play/src/assets/core-actions/azione.png" 
+            imgSrc="/src/assets/core-actions/azione.png" 
             imgAlt="Azione" 
             imgHeader="Azioni"
         />
 
         <Cards 
-            imgSrc="/blink-and-play/src/assets/core-actions/bere.png" 
+            imgSrc="/src/assets/core-actions/bere.png" 
             imgAlt="Bere" 
             imgHeader="Bere"
         />
 
         <Cards 
-            imgSrc="/blink-and-play/src/assets/core-actions/mangiare.png" 
+            imgSrc="/src/assets/core-actions/mangiare.png" 
             imgAlt="Mangiare" 
             imgHeader="Mangiare"
         />
