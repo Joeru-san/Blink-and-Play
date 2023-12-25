@@ -3,7 +3,6 @@
     export let imgAlt="";
     export let imgHeader="";
     export let cardAction="";
-
 </script>
 
 <button on:click={cardAction}>

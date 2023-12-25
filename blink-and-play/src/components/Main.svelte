@@ -1,15 +1,10 @@
 <script>
     import Cards from "./Cards.svelte";
-    import Choice from "./Choice.svelte";
-    import { createEventDispatcher } from 'svelte';
-    
-    let showChoice = false;
+    import { createEventDispatcher } from "svelte";
 
     const dispatch = createEventDispatcher();
-
-    function handleClick() {
-        dispatch('showChoice');
-    }
+    
+    export let onChoice;
 </script>
 
 <main class="relative flex flex-row top-10 justify-center">
@@ -18,19 +13,21 @@
             imgSrc="/src/assets/core-actions/azione.png" 
             imgAlt="Azione" 
             imgHeader="Azioni"
-            cardAction="{handleClick}"
+            cardAction="{onChoice}"
         />
 
         <Cards 
             imgSrc="/src/assets/core-actions/bere.png" 
             imgAlt="Bere" 
             imgHeader="Bere"
+            cardAction="{onChoice}"
         />
 
         <Cards 
             imgSrc="/src/assets/core-actions/mangiare.png" 
             imgAlt="Mangiare" 
             imgHeader="Mangiare"
+            cardAction="{onChoice}"
         />
     </section>
 </main>

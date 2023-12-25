@@ -1,18 +1,13 @@
 <script>
     import Main from "../components/Main.svelte";
     import Choice from "../components/Choice.svelte";
-
-    let showChoice = false;
-
-    function handleShowChoice() {
-        showChoice = true;
-    }
+    
+    let isChoice = false;
 </script>
 
-{#if !showChoice}
-    <Main on:showChoice={handleShowChoice}/>
-
-{:else if showChoice}
-    <Choice />
-    <script> console.log("suca") </script>
+{#if !isChoice}
+    <Main onChoice={() => {
+        isChoice=true;
+    }}/>
 {/if}
+<Choice onChoice={isChoice} />
