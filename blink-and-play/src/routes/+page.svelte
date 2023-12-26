@@ -3,11 +3,18 @@
     import Choice from "../components/Choice.svelte";
     
     let isChoice = false;
+    let selectedCard = null;
+
+    function handleChoice(cardType) {
+        selectedCard = { type: cardType };
+        isChoice = true;
+    }
 </script>
 
 {#if !isChoice}
-    <Main onChoice={() => {
-        isChoice=true;
-    }}/>
+    <Main onChoice={handleChoice} />
 {/if}
-<Choice onChoice={isChoice} />
+
+{#if isChoice}
+    <Choice onChoice={isChoice} cardInfo={selectedCard} />
+{/if}
