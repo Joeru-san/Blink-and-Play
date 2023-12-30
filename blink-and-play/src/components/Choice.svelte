@@ -1,10 +1,13 @@
 <script>
+    import { get } from "svelte/store";
     import Cards from "./Cards.svelte";
     export let onChoice = false;
     export let cardInfo = {};
     let mode = {};
-    let arr = [];
-    let imageModules;
+    let preArr = [];
+    let getArr = [];
+    let preImages;
+    let baseImages;
 
     $: {
         if(mode.type === "pre"){
@@ -19,20 +22,32 @@
     }
 
     if (cardInfo.type === "actions") {
-        imageModules = import.meta.glob("/src/assets/actions/*.webp");
+        preImages = import.meta.glob("/src/assets/actions/*.webp");
+        baseImages = import.meta.glob("/src/assets/get-it-done/actions/base/*.webp");
     } else if (cardInfo.type === "drinks") {
-        imageModules = import.meta.glob("/src/assets/drinks/*.webp");
+        preImages = import.meta.glob("/src/assets/drinks/*.webp");
+        baseImages = import.meta.glob("/src/assets/get-it-done/drinks/base/*.webp");
     } else if (cardInfo.type === "foods") {
-        imageModules = import.meta.glob("/src/assets/foods/*.webp");
+        preImages = import.meta.glob("/src/assets/foods/*.webp");
+        baseImages = import.meta.glob("/src/assets/get-it-done/foods/base/*.webp");
     }
 
-    for (const key in imageModules) {
-        imageModules[key]().then(({ default: imageUrl }) => {
+    for (const key in preImages) {
+        preImages[key]().then(({ default: imageUrl }) => {
             const fileNameWithExtension = key.split('/').pop(); 
             const fileNameWithoutExtension = fileNameWithExtension.split('.')[0];
-            arr.push({ fileName: fileNameWithoutExtension, imageUrl });
+            preArr.push({ fileName: fileNameWithoutExtension, imageUrl });
         });
     }   
+
+    for (const key in baseImages) {
+        baseImages[key]().then(({ default: imageUrl }) => {
+            const fileNameWithExtension = key.split('/').pop(); 
+            const fileNameWithoutExtension = fileNameWithExtension.split('.')[0];
+            getArr.push({ fileName: fileNameWithoutExtension, imageUrl });
+        });
+    }   
+
 
     function modeChoice(choice){
         mode = {type: choice}
@@ -58,23 +73,11 @@
             />
         </section>
     </choice>
-{:else if cardInfo.type === "actions"}
-    <pre class="relative flex flex-row top-10 justify-center">
-        <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-3 gap-24 lg:gap-52">
-            {#each arr as src}
-                <Cards
-                    imgSrc={src.imageUrl}
-                    imgAlt={src.fileName}
-                    imgHeader={src.fileName}
-                />
-            {/each}
-        </section>
-    </pre>
-{:else if cardInfo.type === "drinks"}
+{:else if cardInfo.type === "actions" || cardInfo.type === "drinks" || cardInfo.type === "foods"}
     {#if mode.type === "pre"}
         <pre class="relative flex flex-row top-10 justify-center">
             <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-3 gap-24 lg:gap-52">
-                {#each arr as src}
+                {#each preArr as src}
                     <Cards
                         imgSrc={src.imageUrl}
                         imgAlt={src.fileName}
@@ -83,12 +86,10 @@
                 {/each}
             </section>
         </pre>
-    {/if}
-{:else if cardInfo.type === "foods"}
-    {#if mode.type === "pre"}
-        <pre class="relative flex flex-row top-10 justify-center">
-            <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-3 gap-24 lg:gap-52">
-                {#each arr as src}
+    {:else if mode.type === "get"}
+        <div class="relative flex flex-row top-10 justify-center">
+            <section class="justify-evenly max-w-7xl grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-40">
+                {#each getArr as src}
                     <Cards
                         imgSrc={src.imageUrl}
                         imgAlt={src.fileName}
@@ -96,6 +97,6 @@
                     />
                 {/each}
             </section>
-        </pre>
+        </div>
     {/if}
 {/if}
