@@ -7,8 +7,10 @@
     let mode = {};
     let preArr = [];
     let getArr = [];
+    let chipArr = [];
     let preImages;
     let baseImages;
+    let chipImages;
 
     $: {
         if(mode.type === "pre"){
@@ -29,9 +31,11 @@
     } else if (cardInfo.type === "drinks") {
         preImages = import.meta.glob("/src/assets/drinks/*.webp");
         baseImages = import.meta.glob("/src/assets/get-it-done/drinks/base/*.webp");
+        chipImages = import.meta.glob("/src/assets/get-it-done/drinks/beverages/*.webp");
     } else if (cardInfo.type === "foods") {
         preImages = import.meta.glob("/src/assets/foods/*.webp");
         baseImages = import.meta.glob("/src/assets/get-it-done/foods/base/*.webp");
+        chipImages = import.meta.glob("/src/assets/get-it-done/foods/toppings/*.webp");
     }
 
     for (const key in preImages) {
@@ -49,6 +53,14 @@
             getArr.push({ fileName: fileNameWithoutExtension, imageUrl });
         });
     }   
+
+    for (const key in chipImages) {
+        chipImages[key]().then(({ default: imageUrl }) => {
+            const fileNameWithExtension = key.split('/').pop(); 
+            const fileNameWithoutExtension = fileNameWithExtension.split('.')[0];
+            chipArr.push({ fileName: fileNameWithoutExtension, imageUrl });
+        });
+    }  
 
 
     function modeChoice(choice){
@@ -99,7 +111,7 @@
                         imgHeader={src.fileName}
                     />
                 {/each}
-                {#each getArr as src}
+                {#each chipArr as src}
                     <Chip 
                         imgSrc={src.imageUrl}
                         imgHeader={src.fileName}

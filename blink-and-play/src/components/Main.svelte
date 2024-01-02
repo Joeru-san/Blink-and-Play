@@ -16,7 +16,7 @@
     });
 </script>
   {#if fadeIn}
-    <main transition:fade={{ duration: 1000 }} class="relative flex flex-row top-10 justify-center">
+    <main transition:fade={{ duration: 400 }} class="relative flex flex-row top-10 justify-center">
         <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-3 gap-24 lg:gap-52">
             <Cards
               imgSrc="/src/assets/core-actions/actions.png"
