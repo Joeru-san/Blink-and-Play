@@ -72,14 +72,14 @@
     <choice class="relative flex flex-row top-10 justify-center">
         <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-52">
             <Cards
-                imgSrc="src/assets/pre-made.png"
+                imgSrc="src/assets/pre-made.webp"
                 imgAlt="Immagine che rappresenta come sarà il layout della categoria pre made"
                 imgHeader="Pre-Made"
                 cardAction="{() => modeChoice("pre")}"
             />
         
             <Cards 
-                imgSrc="src/assets/get-it-done.png"
+                imgSrc="src/assets/get-it-done.webp"
                 imgAlt="Immagine che rappresenta come sarà il layout della categoria get it done"
                 imgHeader="Get it Done"
                 cardAction="{() => modeChoice("get")}"

@@ -4,7 +4,7 @@
     </div>
 
     <div class="relative flex">
-        <img class="relatve flex w-24" src="src/assets/BlinkAndPlayLogo.png" alt="Logo of Blink and Play"/>
+        <img class="relatve flex w-24" src="src/assets/BlinkAndPlayLogo.webp" alt="Logo of Blink and Play"/>
     </div>
 
     <div class="relative flex w-24">

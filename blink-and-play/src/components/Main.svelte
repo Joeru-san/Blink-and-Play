@@ -19,21 +19,21 @@
     <main transition:fade={{ duration: 400 }} class="relative flex flex-row top-10 justify-center">
         <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-3 gap-24 lg:gap-52">
             <Cards
-              imgSrc="/src/assets/core-actions/actions.png"
+              imgSrc="/src/assets/core-actions/actions.webp"
               imgAlt="Actions category"
               imgHeader="Actions"
               cardAction={() => handleCardClick("actions")}
             />
       
             <Cards
-              imgSrc="/src/assets/core-actions/drinks.png"
+              imgSrc="/src/assets/core-actions/drinks.webp"
               imgAlt="Drinks category"
               imgHeader="Drinks"
               cardAction={() => handleCardClick("drinks")}
             />
       
             <Cards
-              imgSrc="/src/assets/core-actions/foods.png"
+              imgSrc="/src/assets/core-actions/foods.webp"
               imgAlt="Foods category"
               imgHeader="Foods"
               cardAction={() => handleCardClick("foods")}
