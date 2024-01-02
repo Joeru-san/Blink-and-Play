@@ -1,6 +1,7 @@
 <script>
     import { fade } from "svelte/transition";
     import Cards from "./Cards.svelte";
+    import Chip from "./Chip.svelte";
     export let onChoice = false;
     export let cardInfo = {};
     let mode = {};
@@ -95,6 +96,12 @@
                     <Cards
                         imgSrc={src.imageUrl}
                         imgAlt={src.fileName}
+                        imgHeader={src.fileName}
+                    />
+                {/each}
+                {#each getArr as src}
+                    <Chip 
+                        imgSrc={src.imageUrl}
                         imgHeader={src.fileName}
                     />
                 {/each}
