@@ -1,5 +1,5 @@
 <script>
-    import { get } from "svelte/store";
+    import { fade } from "svelte/transition";
     import Cards from "./Cards.svelte";
     export let onChoice = false;
     export let cardInfo = {};
@@ -21,6 +21,7 @@
         }
     }
 
+    
     if (cardInfo.type === "actions") {
         preImages = import.meta.glob("/src/assets/actions/*.webp");
         baseImages = import.meta.glob("/src/assets/get-it-done/actions/base/*.webp");
@@ -54,7 +55,6 @@
         onChoice = false;
     }
 </script>
-
 {#if onChoice}
     <choice class="relative flex flex-row top-10 justify-center">
         <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-52">
@@ -75,6 +75,7 @@
     </choice>
 {:else if cardInfo.type === "actions" || cardInfo.type === "drinks" || cardInfo.type === "foods"}
     {#if mode.type === "pre"}
+    <div transition:fade>
         <pre class="relative flex flex-row top-10 justify-center">
             <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-3 gap-24 lg:gap-52">
                 {#each preArr as src}
@@ -86,8 +87,9 @@
                 {/each}
             </section>
         </pre>
+    </div>
     {:else if mode.type === "get"}
-        <div class="relative flex flex-row top-10 justify-center">
+        <div transition:fade class="relative flex flex-row top-10 justify-center">
             <section class="justify-evenly max-w-7xl grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-40">
                 {#each getArr as src}
                     <Cards
