@@ -5,3 +5,17 @@
 h1, h2, h3 .work-sans {
     font-family: 'Work Sans', sans-serif;
 }
+
+.light-theme {
+    background-color: #eeeeee;
+    color: #000000;
+}
+.light-theme button{
+    @apply border-black
+}
+
+.dark-theme {
+    background-color: #202020;
+    color: #ffffff;
+}
+
