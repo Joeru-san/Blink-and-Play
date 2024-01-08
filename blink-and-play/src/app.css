@@ -2,20 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3 .work-sans {
+h1, h2, h3, .work-sans {
     font-family: 'Work Sans', sans-serif;
 }
 
 .light-theme {
-    background-color: #eeeeee;
+    background-color: #ababab;
     color: #000000;
 }
-.light-theme button{
-    @apply border-black
+
+.light-theme-card {
+    color: #000000;
+    background-color: #dddddd;
+    border-radius: 8px;
+    @apply z-0;
 }
 
 .dark-theme {
-    background-color: #202020;
+    background-color: #101010;
     color: #ffffff;
 }
 
+.dark-theme-card {
+    color: #ffffff;
+    background-color: #303030;
+    border-radius: 8px;
+    @apply z-0;
+}
+
+.hover-fx {
+    @apply bg-white bg-opacity-0 hover:bg-opacity-20
+}
+
+.light-theme-burger {
+    position: top;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;  
+    background: #dddddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.dark-theme-burger {
+    position: top;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;  
+    background: #303030;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
