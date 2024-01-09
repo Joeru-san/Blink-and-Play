@@ -1,6 +1,6 @@
 <script>
   export let isOpen = false;
-  import Thememanager from './Thememanager.svelte';
+  import ThemeManager from './ThemeManager.svelte';
   import About from './About.svelte';
   import { applyThemeClass, selectedThemeValue, toggleTheme } from '../themeStore.js';
   import { fade } from 'svelte/transition';
@@ -12,7 +12,7 @@
       <About />
     </div>
     <div class="flex mr-12 max-h-fit">
-      <Thememanager />
+      <ThemeManager />
     </div>
     <button class="relative flex w-23 fa fa-times fa-2x" on:click={() => isOpen = !isOpen}></button>
   </div>
