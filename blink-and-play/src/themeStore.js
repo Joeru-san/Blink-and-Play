@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const selectedThemeValue = writable('light');
-
+export const IsBurgerOpen = writable(false);
 export const toggleTheme = () => {
   selectedThemeValue.update((currentValue) => {
     const newTheme = currentValue === 'light' ? 'dark' : 'light';
