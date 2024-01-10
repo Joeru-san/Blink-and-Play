@@ -7,44 +7,44 @@
 export let onChoice;
 
 function handleCardClick(cardType) {
-  onChoice(cardType);
+    onChoice(cardType);
 }
 
 let fadeIn = false;
 
 onMount(() => {
-  fadeIn = true;
-  toggleTheme();
+    fadeIn = true;
+    toggleTheme();
 });
 </script>
 
-  {#if fadeIn}
-    <main transition:fade={{ duration: 400 }} class="relative flex flex-row top-10 justify-center">
-        <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-3 gap-24 lg:gap-52">
-            <Cards
-              imgSrc="/src/assets/core-actions/actions.webp"
-              imgAlt="Actions category"
-              imgHeader="Actions"
-              cardAction={() => handleCardClick("actions")}
-            />
-      
-            <Cards
-              imgSrc="/src/assets/core-actions/drinks.webp"
-              imgAlt="Drinks category"
-              imgHeader="Drinks"
-              cardAction={() => handleCardClick("drinks")}
-            />
-      
-            <Cards
-              imgSrc="/src/assets/core-actions/foods.webp"
-              imgAlt="Foods category"
-              imgHeader="Foods"
-              cardAction={() => handleCardClick("foods")}
-            />
-        </section>
-    </main>
-  {/if}
+{#if fadeIn}
+	<main transition:fade={{ duration: 400 }} class="relative flex flex-row top-10 justify-center items-center w-full">
+		<section class="justify-around grid grid-cols-1 lg:grid-cols-3 w-full place-items-center">
+			<Cards
+			imgSrc="/src/assets/core-actions/actions.webp"
+			imgAlt="Actions category"
+			imgHeader="Actions"
+			cardAction={() => handleCardClick("actions")}
+			/>
+
+			<Cards
+			imgSrc="/src/assets/core-actions/drinks.webp"
+			imgAlt="Drinks category"
+			imgHeader="Drinks"
+			cardAction={() => handleCardClick("drinks")}
+			/>
+
+			<Cards
+			imgSrc="/src/assets/core-actions/foods.webp"
+			imgAlt="Foods category"
+			imgHeader="Foods"
+			cardAction={() => handleCardClick("foods")}
+			/>
+		</section>
+	</main>
+{/if}
   
 <style>
-  @import '../app.css';
+	@import '../app.css';
 </style>

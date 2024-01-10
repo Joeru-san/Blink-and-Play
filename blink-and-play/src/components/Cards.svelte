@@ -16,7 +16,7 @@
 {#if $IsBurgerOpen === false}
   {#if fadeIn}
     <button on:click={cardAction}>
-      <div transition:fade={{ duration: 1000 }} class="{$selectedThemeValue}-theme-card max-w-sm overflow-hidden shadow-lg rounded-lg hover:bg-[#595959] duration-300 sm:max-w-xs md:max-w-md lg:max-w-md">
+      <div transition:fade={{ duration: 1000 }} class="{$selectedThemeValue}-theme-card object-cover max-w-sm overflow-hidden shadow-lg rounded-lg hover:bg-[#595959] duration-300">
         <img class="w-full point" src={imgSrc} alt={imgAlt} />
         <div class="relative flex items-center justify-center px-6 py-4">
           <div class="font-bold text-2xl">{imgHeader}</div>

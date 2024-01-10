@@ -1,12 +1,12 @@
 <script>
   import ThemeManager from './ThemeManager.svelte';
   import About from './About.svelte';
-  import { applyThemeClass, selectedThemeValue, IsBurgerOpen } from '../themeStore.js';
+  import { applyThemeClass, selectedThemeValue, IsBurgerOpen } from '../../themeStore.js';
   import { fade } from 'svelte/transition';
 </script>
 
 {#if $IsBurgerOpen}
-  <div class="overlay" on:click={() => $IsBurgerOpen = !$IsBurgerOpen}></div>
+  <button onclick="{() => $IsBurgerOpen = !$IsBurgerOpen}"><div class="overlay"></div></button>
   <div transition:fade={{ duration: 300 }} class="side-panel {$selectedThemeValue}-theme-burger">
     <button class="close-button relative flex w-26 fa fa-2x mr-4 mt-3" on:click={() => $IsBurgerOpen = !$IsBurgerOpen}>&times;</button>
     <div class="side-panel-item {$selectedThemeValue}-theme-burger">

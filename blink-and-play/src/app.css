@@ -15,7 +15,6 @@ h1, h2, h3, .work-sans {
     color: #000000;
     background-color: #dddddd;
     border-radius: 8px;
-    @apply z-0;
 }
 
 .dark-theme {
@@ -27,7 +26,6 @@ h1, h2, h3, .work-sans {
     color: #ffffff;
     background-color: #303030;
     border-radius: 8px;
-    @apply z-0;
 }
 
 .hover-fx {

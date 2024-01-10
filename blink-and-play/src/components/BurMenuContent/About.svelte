@@ -1,6 +1,6 @@
 <script>
 export let isOpen = false;
-import { applyThemeClass, selectedThemeValue, toggleTheme } from '../themeStore.js';
+import { applyThemeClass, selectedThemeValue, toggleTheme } from '../../themeStore.js';
 
 const handle = () => {
     isOpen=!isOpen;

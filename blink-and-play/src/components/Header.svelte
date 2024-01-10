@@ -1,5 +1,5 @@
 <script>
-    import BurgerMenu from './BurgerMenu.svelte';
+    import BurgerMenu from './BurMenuContent/BurgerMenu.svelte';
 </script>
 <header class="sticky px-6 py-6 duration-200 flex items-center justify-evenly">
     <div class="relative flex">
