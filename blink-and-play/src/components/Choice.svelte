@@ -3,6 +3,7 @@
     import Cards from "./Cards.svelte";
     import Chip from "./Chip.svelte";
     export let onChoice = false;
+    let sentence = "I want a ";
     export let cardInfo = {};
     let mode = {};
     let preArr = [];
@@ -22,6 +23,7 @@
         }else{
             console.log("Actions chosen")
         }
+
     }
 
     
@@ -62,10 +64,14 @@
         });
     }  
 
-
     function modeChoice(choice){
         mode = {type: choice}
         onChoice = false;
+    }
+
+    function composeSentence(component){
+        sentence+=component;
+        console.log(sentence)
     }
 </script>
 {#if onChoice}
@@ -96,12 +102,32 @@
                         imgSrc={src.imageUrl}
                         imgAlt={src.fileName}
                         imgHeader={src.fileName}
+                        cardAction={()=>{
+                            var utterance = new SpeechSynthesisUtterance(src.fileName);
+                            utterance.rate = 0.5;
+                            utterance.pitch = 0.6;
+                            speechSynthesis.speak(utterance);
+                        }}
                     />
                 {/each}
             </section>
         </pre>
     </div>
     {:else if mode.type === "get"}
+        <div class="relative flex justify-evenly items-center">
+            <Chip
+                imgSrc="/src/assets/core-actions/speak.webp"
+                imgHeader="Speak"
+                imgAlt="Button to play with text to speech what is selected"  
+                chipAction={()=> {
+                    var utterance = new SpeechSynthesisUtterance(sentence);
+                    utterance.rate = 0.5;
+                    utterance.pitch = 0.6;
+                    speechSynthesis.speak(utterance);
+                    sentence = "I want a ";
+                }}         
+            />
+        </div>
         <div transition:fade class="relative flex flex-row top-10 justify-center">
             <section class="justify-evenly max-w-7xl grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-40">
                 {#each getArr as src}
@@ -109,12 +135,15 @@
                         imgSrc={src.imageUrl}
                         imgAlt={src.fileName}
                         imgHeader={src.fileName}
+                        cardAction="{()=> {composeSentence(src.fileName)}}"
                     />
                 {/each}
                 {#each chipArr as src}
                     <Chip 
                         imgSrc={src.imageUrl}
                         imgHeader={src.fileName}
+                        imgAlt={src.fileName}
+                        chipAction="{()=> {composeSentence(" of " + src.fileName)}}"
                     />
                 {/each}
             </section>
