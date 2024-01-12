@@ -1,12 +1,37 @@
 <script>
+  import { onMount } from 'svelte';
+  import InputKB from './TTSinput/InputKB.svelte';
+  //import { keyboardVisible } from './TTSinput/InputKB.svelte'
   import ThemeManager from './ThemeManager.svelte';
   import About from './About.svelte';
   import { applyThemeClass, selectedThemeValue, IsBurgerOpen } from '../../themeStore.js';
   import { fade } from 'svelte/transition';
+
+  let inputValue = "";
+  let showKeyboard = false;
+
+  function toggleKeyboard() {
+    showKeyboard = !showKeyboard;
+  }
+
+  onMount(() => {
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  });
+
+  function handleKeyPress(event) {
+    if (event.key === "Escape" && showKeyboard) {
+      showKeyboard = false;
+    }
+  }
 </script>
 
 {#if $IsBurgerOpen}
-  <button onclick="{() => $IsBurgerOpen = !$IsBurgerOpen}"><div class="overlay"></div></button>
+  <button onclick="{() => $IsBurgerOpen = !$IsBurgerOpen}">
+    <div class="overlay {showKeyboard ? 'active' : ''}"><button onclick={() => showKeyboard = false}></button></div>
+  </button>
   <div transition:fade={{ duration: 300 }} class="side-panel {$selectedThemeValue}-theme-burger">
     <button class="close-button relative flex w-26 fa fa-2x mr-4 mt-3" on:click={() => $IsBurgerOpen = !$IsBurgerOpen}>&times;</button>
     <div class="side-panel-item {$selectedThemeValue}-theme-burger">
@@ -14,6 +39,9 @@
     </div>
     <div class="side-panel-item {$selectedThemeValue}-theme-burger">
       <ThemeManager />
+    </div>
+    <div class="side-panel-item {$selectedThemeValue}-theme-burger">
+      <button onclick={toggleKeyboard}>Open Keyboard</button>
     </div>
   </div>
 {:else}
@@ -29,6 +57,11 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
+    display: none;
+  }
+
+  .overlay.active {
+    display: block;
   }
 
   .side-panel {
@@ -43,6 +76,12 @@
     flex-direction: column;
     padding: 20px;
     z-index: 1000;
+  }
+
+  @media (max-width:1000px) {
+    .side-panel {
+      width: 90%;
+    }
   }
 
   .close-button {
