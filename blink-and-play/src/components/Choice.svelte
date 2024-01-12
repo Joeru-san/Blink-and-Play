@@ -30,6 +30,8 @@
     if (cardInfo.type === "actions") {
         preImages = import.meta.glob("/src/assets/actions/*.webp");
         baseImages = import.meta.glob("/src/assets/get-it-done/actions/base/*.webp");
+        chipImages = import.meta.glob("/src/assets/actions/*.webp");
+        sentence = "I want to";
     } else if (cardInfo.type === "drinks") {
         preImages = import.meta.glob("/src/assets/drinks/*.webp");
         baseImages = import.meta.glob("/src/assets/get-it-done/drinks/base/*.webp");
@@ -69,8 +71,23 @@
         onChoice = false;
     }
 
-    function composeSentence(component){
-        sentence+=" " + component;
+    function composeSentence(component, type){
+        if (cardInfo.type === "actions") {
+            if(type !== "Cards")
+                sentence+=" the " + component;
+            else
+                sentence+=" " + component;  
+        } else if (cardInfo.type === "drinks") {
+            if(type !== "Cards")
+                sentence+=" of " + component;   
+            else
+                sentence+=" " + component;  
+        } else if (cardInfo.type === "foods") {
+            if(type !== "Cards")
+                sentence+=" with " + component;
+            else
+                sentence+=" " + component;  
+        }
         console.log(sentence)
     }
 </script>
@@ -137,7 +154,7 @@
                         imgSrc={src.imageUrl}
                         imgAlt={src.fileName}
                         imgHeader={src.fileName}
-                        cardAction="{()=> {composeSentence(src.fileName)}}"
+                        cardAction="{()=> {composeSentence(src.fileName, "Cards")}}"
                     />
                 {/each}
                 {#each chipArr as src}
@@ -145,7 +162,7 @@
                         imgSrc={src.imageUrl}
                         imgHeader={src.fileName}
                         imgAlt={src.fileName}
-                        chipAction="{()=> {composeSentence((cardInfo.type === "drinks" ? " of " : " with ") + src.fileName)}}"
+                        chipAction="{()=> {composeSentence(src.fileName, "Chips")}}"
                     />
                 {/each}
             </section>
