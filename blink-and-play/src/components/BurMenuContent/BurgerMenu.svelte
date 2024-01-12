@@ -1,12 +1,12 @@
 <script>
   import { onMount } from 'svelte';
   import ThemeManager from './ThemeManager.svelte';
+  import InputKeyboard from './InputKeyboard.svelte';
   import About from './About.svelte';
   import { applyThemeClass, selectedThemeValue, IsBurgerOpen } from '../../themeStore.js';
   import { fade } from 'svelte/transition';
 
   let inputValue = "";
-  let showKeyboard = false;
 
   function toggleKeyboard() {
     showKeyboard = !showKeyboard;
@@ -27,9 +27,6 @@
 </script>
 
 {#if $IsBurgerOpen}
-  <button onclick="{() => $IsBurgerOpen = !$IsBurgerOpen}">
-    <div class="overlay {showKeyboard ? 'active' : ''}"><button onclick={() => showKeyboard = false}></button></div>
-  </button>
   <div transition:fade={{ duration: 300 }} class="side-panel {$selectedThemeValue}-theme-burger">
     <button class="close-button relative flex w-26 fa fa-2x mr-4 mt-3" on:click={() => $IsBurgerOpen = !$IsBurgerOpen}>&times;</button>
     <div class="side-panel-item {$selectedThemeValue}-theme-burger">
@@ -39,7 +36,7 @@
       <ThemeManager />
     </div>
     <div class="side-panel-item {$selectedThemeValue}-theme-burger">
-      <button onclick={toggleKeyboard}>Open Keyboard</button>
+      <InputKeyboard />
     </div>
   </div>
 {:else}
