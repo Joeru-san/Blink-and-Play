@@ -13,7 +13,7 @@
 
 <div class="layout">
   	<button on:click={toggleTheme} class="flex items-center">
-    	<img class="w-8 h-8 mr-2 object-contain" src="/src/assets/{$selectedThemeValue}-theme.webp" alt="Theme selector" />
+    	<img class="w-8 h-8 mr-2 object-contain" src="{$selectedThemeValue}-theme.webp" alt="Theme selector" />
     	<div class="font-bold text-2xl">{$selectedThemeValue}</div>
   	</button>
 </div>

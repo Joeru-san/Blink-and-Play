@@ -78,14 +78,14 @@
     <choice class="relative flex flex-row top-10 justify-center">
         <section class="justify-evenly max-w-full grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-52">
             <Cards
-                imgSrc="src/assets/pre-made.webp"
+                imgSrc="/pre-made.webp"
                 imgAlt="Immagine che rappresenta come sarà il layout della categoria pre made"
                 imgHeader="Pre-Made"
                 cardAction="{() => modeChoice("pre")}"
             />
         
             <Cards 
-                imgSrc="src/assets/get-it-done.webp"
+                imgSrc="/get-it-done.webp"
                 imgAlt="Immagine che rappresenta come sarà il layout della categoria get it done"
                 imgHeader="Get it Done"
                 cardAction="{() => modeChoice("get")}"
@@ -116,7 +116,7 @@
     {:else if mode.type === "get"}
         <div transition:fade class="relative flex justify-evenly items-center">
             <Chip
-                imgSrc="/src/assets/core-actions/speak.webp"
+                imgSrc="/core-actions/speak.webp"
                 imgHeader="Speak"
                 imgAlt="Button to play with text to speech what is selected"  
                 chipAction={()=> {
