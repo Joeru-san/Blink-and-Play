@@ -20,7 +20,7 @@ onMount(() => {
 
 {#if fadeIn}
 	<main transition:fade={{ duration: 400 }} class="relative flex flex-row top-10 justify-center items-center w-full">
-		<section class="justify-around grid grid-cols-1 lg:grid-cols-3 w-full place-items-center">
+		<section class="justify-around grid grid-cols-1 lg:grid-cols-3 w-full place-items-center gap-10">
 			<Cards
 			imgSrc="/src/assets/core-actions/actions.webp"
 			imgAlt="Actions category"
