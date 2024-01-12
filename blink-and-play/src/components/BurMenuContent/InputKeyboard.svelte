@@ -6,11 +6,11 @@
     const keys = [
         "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
         "A", "S", "D", "F", "G", "H", "J", "K", "L",
-        "Z", "X", "C", "V", "B", "N", "M",
+        "Z", "X", "C", "V", "B", "N", "M", ".", ","
     ];
 
     const specialKeys = [
-        "Space", "Backspace", "Empty"
+        "Space", "Backspace", "Empty", "Speak"
     ];
 
     function handleKeyClick(key) {
@@ -20,6 +20,11 @@
             inputText = inputText.slice(0, -1);
         } else if (key === "Empty") {
             inputText = "";
+        } else if (key ==="Speak"){
+            var utterance = new SpeechSynthesisUtterance(inputText);
+            utterance.rate = 0.5;
+            utterance.pitch = 0.6;
+            speechSynthesis.speak(utterance);
         } else {
             inputText += key;
         }
@@ -53,14 +58,14 @@
     </div>
 <div class="">
     <button on:click={toggleKeyboard} class="flex items-center">
-        <img class="w-8 h-8 mr-2 object-contain" src="/src/assets/Speak.svg" alt="Keyboard" />
+        <img class="w-8 h-8 mr-2 object-contain" src="/Speak.svg" alt="Keyboard" />
         <div class="font-bold text-2xl">Speak</div>
     </button>
 </div>
 {:else}
 <div class="">
     <button on:click={toggleKeyboard} class="flex items-center">
-        <img class="w-8 h-8 mr-2 object-contain" src="/src/assets/Speak.svg" alt="Keyboard" />
+        <img class="w-8 h-8 mr-2 object-contain" src="/Speak.svg" alt="Keyboard" />
         <div class="font-bold text-2xl">Speak</div>
     </button>
 </div>
