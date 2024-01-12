@@ -19,7 +19,7 @@
         } else if (key === "Backspace") {
             inputText = inputText.slice(0, -1);
         } else if (key === "Empty") {
-            inputText = "";  // Svuota l'input box
+            inputText = "";
         } else {
             inputText += key;
         }
@@ -91,7 +91,7 @@
         grid-template-columns: repeat(7, 1fr);
         gap: 5px;
         max-width: 400px;
-        justify-content: center; /* Aggiunto per centrare i pulsanti */
+        justify-content: center;
     }
 
     .special-keys {
@@ -111,7 +111,7 @@
         display: flex;
         justify-content: center;
         cursor: pointer;
-        background-color: #ddd;
+        background-color: #f0f0f0;
         border-radius: 6px;
     }
 
