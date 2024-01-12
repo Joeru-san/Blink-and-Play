@@ -114,7 +114,7 @@
         </pre>
     </div>
     {:else if mode.type === "get"}
-        <div class="relative flex justify-evenly items-center">
+        <div transition:fade class="relative flex justify-evenly items-center">
             <Chip
                 imgSrc="/src/assets/core-actions/speak.webp"
                 imgHeader="Speak"
