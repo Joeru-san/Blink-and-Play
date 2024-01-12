@@ -10,7 +10,7 @@
         <img class="relatve flex w-24" src="/BlinkAndPlayLogo.webp" alt="Logo of Blink and Play"/>
     </div>
 
-    <div class="relative flex w-24">
+    <div class="relative flex w-24 justify-end">
         <BurgerMenu />
     </div>
 </header>
