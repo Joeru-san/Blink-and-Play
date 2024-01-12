@@ -1,7 +1,5 @@
 <script>
   import { onMount } from 'svelte';
-  import InputKB from './TTSinput/InputKB.svelte';
-  //import { keyboardVisible } from './TTSinput/InputKB.svelte'
   import ThemeManager from './ThemeManager.svelte';
   import About from './About.svelte';
   import { applyThemeClass, selectedThemeValue, IsBurgerOpen } from '../../themeStore.js';
@@ -71,12 +69,12 @@
     right: 0;
     height: 100%;
     width: 17%;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: -5px 0 15px rgba  (0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     padding: 20px;
     z-index: 1000;
-  }
+  } 
 
   @media (max-width:1000px) {
     .side-panel {
