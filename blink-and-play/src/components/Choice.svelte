@@ -70,7 +70,7 @@
     }
 
     function composeSentence(component){
-        sentence+=component;
+        sentence+=" " + component;
         console.log(sentence)
     }
 </script>
@@ -114,12 +114,11 @@
         </pre>
     </div>
     {:else if mode.type === "get"}
-        <div transition:fade class="relative flex justify-evenly items-center">
+        <div transition:fade class="relative flex flex-col justify-center items-center">
             <Chip
                 imgSrc="/core-actions/speak.webp"
                 imgHeader="Speak"
                 imgAlt="Button to play with text to speech what is selected"  
-                speakButton = "true"
                 chipAction={()=> {
                     var utterance = new SpeechSynthesisUtterance(sentence);
                     utterance.rate = 0.5;
@@ -128,6 +127,8 @@
                     sentence = "I want a ";
                 }}         
             />
+
+            <h3 class="relative flex items-center">{sentence}</h3>
         </div>
         <div transition:fade class="relative flex flex-row top-10 justify-center">
             <section class="justify-evenly max-w-7xl grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-40">
@@ -144,7 +145,7 @@
                         imgSrc={src.imageUrl}
                         imgHeader={src.fileName}
                         imgAlt={src.fileName}
-                        chipAction="{()=> {composeSentence(" of " + src.fileName)}}"
+                        chipAction="{()=> {composeSentence((cardInfo.type === "drinks" ? " of " : " with ") + src.fileName)}}"
                     />
                 {/each}
             </section>
