@@ -119,6 +119,7 @@
                 imgSrc="/core-actions/speak.webp"
                 imgHeader="Speak"
                 imgAlt="Button to play with text to speech what is selected"  
+                speakButton = "true";
                 chipAction={()=> {
                     var utterance = new SpeechSynthesisUtterance(sentence);
                     utterance.rate = 0.5;
