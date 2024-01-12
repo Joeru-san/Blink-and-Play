@@ -104,7 +104,7 @@
                         imgHeader={src.fileName}
                         cardAction={()=>{
                             var utterance = new SpeechSynthesisUtterance(src.fileName);
-                            utterance.rate = 0.5;
+                            utterance.rate = 0.7;
                             utterance.pitch = 0.6;
                             speechSynthesis.speak(utterance);
                         }}
