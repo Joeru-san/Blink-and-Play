@@ -1,5 +1,6 @@
 <script>
     import { fade } from "svelte/transition";
+    import { IsBurgerOpen } from "../themeStore.js";
     import Cards from "./Cards.svelte";
     import Chip from "./Chip.svelte";
     export let onChoice = false;
@@ -145,7 +146,7 @@
                 }}         
             />
 
-            <h3 class="relative flex items-center">{sentence}</h3>
+            {#if $IsBurgerOpen === false}<h3 class="relative flex items-center">{sentence}</h3>{/if}
         </div>
         <div transition:fade class="relative flex flex-row top-10 justify-center">
             <section class="justify-evenly max-w-7xl grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-40">

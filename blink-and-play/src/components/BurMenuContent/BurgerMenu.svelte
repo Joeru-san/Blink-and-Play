@@ -65,7 +65,7 @@
     left: auto;
     right: 0;
     height: 100%;
-    width: 17%;
+    width: 19%;
     box-shadow: -5px 0 15px rgba  (0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
